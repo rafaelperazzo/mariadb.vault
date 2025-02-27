@@ -1,0 +1,20 @@
+[mariadb]
+
+plugin_load_add = hashicorp_key_management
+#hashicorp-key-management-vault-url=SUA_URL
+
+#hashicorp-key-management-token=SEU_TOKEN
+hashicorp-key-management-caching-enabled=ON
+
+## InnoDB/XtraDB Encryption Setup
+innodb_encrypt_tables = FORCE
+innodb_encrypt_log = ON
+innodb_encryption_threads = 4
+
+## Aria Encryption Setup
+aria_encrypt_tables = ON
+
+## Temp & Log Encryption
+encrypt-tmp-disk-tables = 1
+encrypt-tmp-files = 1
+encrypt_binlog = ON
