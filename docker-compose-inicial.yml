@@ -1,0 +1,26 @@
+services:
+  db_vault:
+     image: mariadb_vault:11
+     build: .
+     restart: no
+     command: mariadbd --sql_mode=""
+     environment:
+       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+       MYSQL_DATABASE: cppgi
+       MYSQL_USER: cppgi
+       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+       TZ: America/Fortaleza
+     #ports:
+     #  - "33306:3306"
+     volumes:
+       - mariadb-data:/var/lib/mysql
+       #- ./conf:/etc/mysql/conf.d:ro
+     networks:
+       - web
+
+networks:
+  web:
+    external: true
+
+volumes:
+  mariadb-data:
