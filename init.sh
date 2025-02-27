@@ -7,4 +7,5 @@ echo "*********************************************"
 gocryptfs cipher plain
 touch plain/.env
 cp conf/encryption.cnf.sample conf/encryption.cnf
-rm conf/*.sample
+rm conf/encryption.cnf.sample
+docker volume rm mariadb_mariadb-data
