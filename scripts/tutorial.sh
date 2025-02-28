@@ -19,6 +19,7 @@ vault login $token
 ./vault.exec.sh
 
 echo "VAULT_TOKEN=$token" > plain/.env
+echo "VAULT_URL=http://127.0.0.1:8200/v1/cppgi" >> plain/.env
 
 docker compose --env-file plain/.env build
 
