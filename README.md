@@ -38,9 +38,9 @@ sudo apt-get install -y gocryptfs
 ### Clone o repositório
 
 ```console
-mkdir mariadb.vault
-cd mariadb.vault
+cd ~
 git clone https://github.com/rafaelperazzo/mariadb.vault.git
+cd mariadb.vault
 ```
 
 ### Inicialize a pasta criptografada
