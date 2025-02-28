@@ -1,23 +1,19 @@
+cat ../vault/share/token_ro
+
 read -p "Digite o token cppgi: " token
 if [ -z "$token" ]; then
     echo "Token não pode ser vazio"
     exit 1
 fi
 
-wget -O - https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
-sudo apt update && sudo apt-get -y install vault
-
 sudo apt-get install -y gocryptfs
 
-mkdir mariadb.vault
-cd mariadb.vault
-git clone https://github.com/rafaelperazzo/mariadb.vault.git
-
+cd ~
 cd mariadb.vault
 
 ./init.sh
-
+#Mude o endereço abaixo em caso de uso de outro servidor hashicorp vault
+export VAULT_ADDR=http://127.0.0.1:8200
 vault login $token
 
 ./vault.exec.sh
