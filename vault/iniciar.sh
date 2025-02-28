@@ -4,6 +4,7 @@ sudo apt update && sudo apt install vault
 
 mkdir -p {file,logs,certs,share}
 # Exec into the vault container
+docker network create web
 docker compose down
 docker compose up -d
 #docker exec -it vault /bin/sh
