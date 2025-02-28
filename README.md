@@ -12,6 +12,9 @@
     - 2
 - Token para acesso somente leitura para o vault **cppgi/\***
 
+> [!WARNING]  
+> Os próximos passos só funcionam quando o servidor hashicorp vault estiver funcionando corretamente
+
 ## Preparação
 
 ### Instalando um cliente vault (ubuntu)
